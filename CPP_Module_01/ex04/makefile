@@ -1,18 +1,18 @@
-
-NAME = megaphone
+NAME =   SED_IS_FOR_LOSERS
 
 CC = c++
 
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98 -Wno-reorder
 SRCS = $(wildcard *.cpp)
 OBJS = $(patsubst %.cpp,%.o, $(wildcard *.cpp))
+HDRS = $(wildcard *.h)
 
 all: $(NAME)
 
-$(NAME):$(OBJS)
+$(NAME): $(OBJS)
 	$(CC) $(FLAGS) $(OBJS) -o $@
 
-$(OBJS):$(SRCS)
+$(OBJS): $(SRCS) $(HDRS)
 	$(CC) $(FLAGS) -c $(SRCS)
 
 clean:
@@ -23,4 +23,3 @@ fclean:
 	rm -rf $(NAME)
 	rm -rf $(OBJS)
 	clear 
- 

@@ -38,7 +38,7 @@ void PhoneBook::search()
 		return ;
 	}
 	i = 0;
-	std::cout << "  index  |" << " first name  |" << "  last name  |" << "  nickname  |\n";
+	std::cout << "  index  |" << " first name  |" << "  last name  |" << "   nickname  |\n";
 	while(i < 8)
 	{
 		if (!_contact[i].check_empty())
@@ -60,5 +60,5 @@ void PhoneBook::search()
 		std::cout << "INVALID INPUT !\n";
 		std::cin.clear();
 	}
-	std::cin.ignore(100, '\n');
+	std::cin.ignore(1000, '\n');
 }

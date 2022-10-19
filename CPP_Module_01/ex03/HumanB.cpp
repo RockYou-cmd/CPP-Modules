@@ -2,11 +2,19 @@
 
 void HumanB::attack()
 {
-	std::cout << name << ": attacks with their " << weaponb.getType() << std::endl;
+	if (!weaponb)
+		std::cout << name << " not armed\n";
+	else
+		std::cout << name << ": attacks with their " << weaponb->getType() << std::endl;
 }
 
-HumanB::HumanB(std::string _name, Weapon wpn)
+HumanB::HumanB(std::string _name) : name(_name)
 {
 	name = _name;
-	weaponb.setType(wpn.getType());
+	weaponb = NULL;
+}
+
+void HumanB::setWeapon(Weapon &wpn)
+{
+	weaponb = &wpn;
 }

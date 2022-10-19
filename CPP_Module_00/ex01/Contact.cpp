@@ -47,34 +47,36 @@ int Contact::check_empty()
 
 void esp(int i)
 {
-	while (i-- > 0)
+	while (i-- >= 0)
 		std::cout << ' ';
-	std::cout << "  |";
 }
 
 void Contact::half_info(int i)
 {
 	std::cout << "    " << i << "    |";
 	if (first_name.length() > 10)
-		std::cout << " "<< first_name.substr(0, 9) + '.' << "  |";
+		std::cout << "  "<< first_name.substr(0, 9) + '.' << " |";
 	else
 	{
-		std::cout << " " << first_name;
-		esp(10 - first_name.length());
+		esp(11 - first_name.length());
+		std::cout  << first_name;
+		std::cout << " |";
 	}
 	if (last_name.length() > 10)
 		std::cout << "  "<< last_name.substr(0, 9) + '.' << " |";
 	else
 	{
-		std::cout << "  " << last_name;
-		esp(9 - last_name.length());
+		esp(11 - last_name.length());
+		std::cout << last_name;
+		std::cout << " |";
 	}
 	if ( nick_name.length() > 10)
-		std::cout << "  "<<  nick_name.substr(0, 9) + '.' << "|";
+		std::cout << "  "<<  nick_name.substr(0, 9) + '.' << " |";
 	else
 	{
-		std::cout << "  " <<  nick_name;
-		esp(8 -  nick_name.length());
+		esp(11 -  nick_name.length());
+		std::cout << nick_name;
+		std::cout << " |";
 	}
 	std::cout << std::endl;
 }

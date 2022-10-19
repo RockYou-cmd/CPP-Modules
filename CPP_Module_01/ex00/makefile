@@ -1,21 +1,20 @@
 
 NAME = Zombie
 
-CC = g++
+CC = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS = $(wildcard *.cpp)
 OBJS = $(patsubst %.cpp,%.o, $(wildcard *.cpp))
 HDRS = $(wildcard *.h)
 
-all: $(NAME) clean
+all: $(NAME)
 
-$(NAME):$(SRCS) $(OBJS)
+$(NAME): $(OBJS)
 	$(CC) $(FLAGS) $(OBJS) -o $@
 
-$(SRCS): $(HDRS)
-	$(CC) $(FLAGS) -c $@
-
+$(OBJS): $(SRCS) $(HDRS)
+	$(CC) $(FLAGS) -c $(SRCS)
 clean:
 	rm -rf $(OBJS)
 	clear 

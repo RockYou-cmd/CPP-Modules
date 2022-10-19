@@ -7,13 +7,12 @@ SRCS = $(wildcard *.cpp)
 OBJS = $(patsubst %.cpp,%.o, $(wildcard *.cpp))
 HDRS = $(wildcard *.h)
 
-all: $(NAME) clean
-
-$(NAME):$(SRCS) $(OBJS)
+all: $(NAME)
+$(NAME): $(OBJS)
 	$(CC) $(FLAGS) $(OBJS) -o $@
 
-$(SRCS): $(HDRS)
-	$(CC) $(FLAGS) -c $@
+$(OBJS): $(SRCS) $(HDRS)
+	$(CC) $(FLAGS) -c $(SRCS)
 
 clean:
 	rm -rf $(OBJS)
